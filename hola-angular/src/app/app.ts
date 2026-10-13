@@ -16,7 +16,7 @@ this.contador.update(valor => valor + 1);
 reiniciar(): void {
 this.contador.set(0);
 }
-=======
+
 
 @Component({
   selector: 'app-root',
