@@ -9,5 +9,5 @@ import { Component } from '@angular/core';
 export class Calculadora {
   readonly a = 0;
   readonly b = 0;
-  readonly resultado = signal(0)
+  readonly resultado = signal(0);
 }
