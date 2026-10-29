@@ -9,7 +9,6 @@
     "test": "ng test"
   },
   "private": true,
-<<<<<<< HEAD
   "packageManager": "npm@11.20.0",
   "dependencies": {
     "@angular/common": "^22.2.0",
@@ -18,29 +17,13 @@
     "@angular/forms": "^22.2.0",
     "@angular/platform-browser": "^22.2.0",
     "@angular/router": "^22.2.0",
-=======
-  "packageManager": "npm@11.17.0",
-  "dependencies": {
-    "@angular/common": "^22.1.0",
-    "@angular/compiler": "^22.1.0",
-    "@angular/core": "^22.1.0",
-    "@angular/forms": "^22.1.0",
-    "@angular/platform-browser": "^22.1.0",
-    "@angular/router": "^22.1.0",
->>>>>>> 82a20fd2c5c92351f6c480a9cf4993cff1afbb63
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0"
   },
   "devDependencies": {
-<<<<<<< HEAD
     "@angular/build": "^22.2.2",
     "@angular/cli": "^22.2.2",
     "@angular/compiler-cli": "^22.2.0",
-=======
-    "@angular/build": "^22.1.8",
-    "@angular/cli": "^22.1.8",
-    "@angular/compiler-cli": "^22.1.0",
->>>>>>> 82a20fd2c5c92351f6c480a9cf4993cff1afbb63
     "prettier": "^3.8.1",
     "typescript": "~6.0.2"
   }
