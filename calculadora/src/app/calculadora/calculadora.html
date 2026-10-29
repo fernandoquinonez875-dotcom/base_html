@@ -1,2 +1,25 @@
-<p>calculadora works!</p>
+<div class="calculadora-tarjeta">
+  <h2>Calculadora Básica</h2>
 
+  <div class="grupo-input">
+    <label for="input-a">Número A:</label>
+    <input id="input-a" type="number" [(ngModel)]="a" placeholder="Ingrese el primer número">
+  </div>
+
+  <div class="grupo-input">
+    <label for="input-b">Número B:</label>
+    <input id="input-b" type="number" [(ngModel)]="b" placeholder="Ingrese el segundo número">
+  </div>
+
+  <div class="botones-grid">
+    <button type="button" class="btn-op" (click)="calcular('+')">+</button>
+    <button type="button" class="btn-op" (click)="calcular('-')">-</button>
+    <button type="button" class="btn-op" (click)="calcular('*')">×</button>
+    <button type="button" class="btn-op" (click)="calcular('/')">÷</button>
+  </div>
+
+  <div class="resultado-seccion">
+    <span>Resultado:</span>
+    <strong class="valor-resultado">{{ resultado() }}</strong>
+  </div>
+</div>
