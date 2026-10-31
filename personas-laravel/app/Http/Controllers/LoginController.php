@@ -2,12 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Contracts\View\View;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 class LoginController extends Controller
 {
-    public function create()
+    public function create(): View|RedirectResponse
     {
         if (Auth::check()) {
             return redirect()->route('inicio');
@@ -16,24 +18,25 @@ class LoginController extends Controller
         return view('auth.login');
     }
 
-    public function store(Request $request)
+    public function store(Request $request): RedirectResponse
     {
-        $datos = $request->validate([
+        $credenciales = $request->validate([
             'email' => ['required', 'email'],
             'password' => ['required', 'string'],
         ]);
-        if (Auth::attempt($datos)) {
-            $request->session()->regenerate();
 
-            return redirect()->intended(route('inicio'));
+        if (! Auth::attempt($credenciales)) {
+            return back()->withErrors([
+                'email' => 'Correo o contraseña incorrectos.',
+            ])->onlyInput('email');
         }
 
-        return back()->withErrors([
-            'email' => 'Correo o contraseña incorrectos.',
-        ])->onlyInput('email');
+        $request->session()->regenerate();
+
+        return redirect()->intended(route('inicio'));
     }
 
-    public function destroy(Request $request)
+    public function destroy(Request $request): RedirectResponse
     {
         Auth::logout();
         $request->session()->invalidate();
