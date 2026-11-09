@@ -105,23 +105,20 @@ class LoginTest extends TestCase
         $response->assertRedirectToRoute('inicio');
     }
 
-    public function test_authenticated_user_can_see_inicio_and_their_name(): void
+    public function test_authenticated_user_is_redirected_from_inicio_to_personas(): void
     {
         $user = User::factory()->create(['name' => 'Usuario de práctica']);
 
         $response = $this->actingAs($user)->get('/inicio');
 
-        $response->assertOk()
-            ->assertViewIs('inicio')
-            ->assertSee('Ingresaste correctamente al sistema de personas.')
-            ->assertSee('Usuario de práctica');
+        $response->assertRedirectToRoute('personas.index');
     }
 
     public function test_user_name_is_escaped_in_the_shared_layout(): void
     {
         $user = User::factory()->create(['name' => '<script>alert(1)</script>']);
 
-        $response = $this->actingAs($user)->get('/inicio');
+        $response = $this->actingAs($user)->get('/personas');
 
         $response->assertOk()
             ->assertSee('&lt;script&gt;alert(1)&lt;/script&gt;', false)
