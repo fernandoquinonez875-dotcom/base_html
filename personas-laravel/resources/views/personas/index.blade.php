@@ -17,5 +17,7 @@
 <tr><td colspan="4">No hay personas registradas.</td></tr>
 @endforelse
 </tbody>
+del listado:
+<p><a href="{{ route('personas.create') }}">Crear persona</a></p>
 </table>
 @endsection

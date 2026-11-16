@@ -17,6 +17,10 @@ Route::middleware('auth')->group(function () {
     })->name('inicio');
     Route::get('/personas', [PersonaController::class, 'index'])
         ->name('personas.index');
+    Route::get('/personas/crear', [PersonaController::class, 'create'])
+        ->name('personas.create');
+    Route::post('/personas', [PersonaController::class, 'store'])
+        ->name('personas.store');
     Route::post('/logout', [LoginController::class, 'destroy'])
         ->name('logout');
 });
