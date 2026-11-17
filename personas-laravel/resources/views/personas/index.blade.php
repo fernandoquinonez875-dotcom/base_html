@@ -6,7 +6,10 @@
 <th>ID</th><th>DNI</th><th>Nombre</th><th>Nacimiento</th>
 </tr></thead>
 <tbody>
-@forelse ($personas as $persona)
+@forelse ($personas as $persona)  <th>Acciones</th>
+<td>
+<a href="{{ route('personas.edit', $persona->id) }}">Editar</a>
+</td>
 <tr>
 <td>{{ $persona->id }}</td>
 <td>{{ $persona->dni }}</td>
