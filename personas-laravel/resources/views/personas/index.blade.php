@@ -9,6 +9,13 @@
 @forelse ($personas as $persona)  <th>Acciones</th>
 <td>
 <a href="{{ route('personas.edit', $persona->id) }}">Editar</a>
+<form method="POST"
+action="{{ route('personas.destroy', $persona->id) }}"
+onsubmit="return confirm('¿Eliminar esta persona?');">
+@csrf
+@method('DELETE')
+<button type="submit">Eliminar</button>
+</form>
 </td>
 <tr>
 <td>{{ $persona->id }}</td>
